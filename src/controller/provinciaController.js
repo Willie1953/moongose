@@ -3,28 +3,26 @@ const modificarProvinciasService = require("../services/provincias/modificarProv
 const   obtenerProvinciasService = require("../services/provincias/obtenerProvincia");
 const  eliminarProvinciasService = require("../services/provincias/eliminarProvincia")
 
-console.log("en el controlador");
-const agregarProvincia = (next) => {
-    try {
-        console.log("jjjjj");
-        agregarProvinciasService();
-    } catch (error) {
-        next(error)
-    return    
-    };
-    return;
-}
-
-// const agregarProvincia = () => {
-//     console.log("agregar Provincia en el controlador");
+// const agregarProvincia = (next) => {
+//     console.log("en el controlador");
 //     try {
 //         agregarProvinciasService();
-//         // res.json({message: "Provincia agregada : " + provincia});
 //     } catch (error) {
-//         const mng = error.message;
-//         res.json({menssage: "Ocurrio un error ahora : " + mng });
-//     }
-// };
+//         next(error)   
+//     };
+//     return;
+// }
+
+const agregarProvincia = async (req, res) => {
+    console.log("agregar Provincia en el controlador");
+    try {
+        await agregarProvinciasService();
+        res.json({message: "Provincias agregadas"});
+    } catch (error) {
+        const mng = error.message;
+        res.json({menssage: "Ocurrio un error ahora : " + mng });
+    }
+};
 
 const obtenerProvincia = async (req, res, next) => {
     try {

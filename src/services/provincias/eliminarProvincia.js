@@ -1,4 +1,4 @@
-const ProvinciasModel = require("../../models/provincias.model")
+const ProvinciasModel = require("../../models/provincias.models")
 
 
 // Las provincias se elinan por su nombre unicamente, como seguridad.

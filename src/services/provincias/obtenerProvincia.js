@@ -1,4 +1,4 @@
-const ProvinciasModel = require("../../models/provincias.model")
+const ProvinciasModel = require("../../models/provincias.models")
 
 const obtenerProvinciasService = async() =>{
     const provincia =  await ProvinciasModel.find();

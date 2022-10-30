@@ -1,4 +1,4 @@
-const ProvinciasModel = require("../../models/provincias.model");
+const ProvinciasModel = require("../../models/provincias.models");
 
 // El unico dato permitido para modificar de una provincia, es su fecha de creacion.
 // Inicialmente esa fecha es la actual, ya que el dato no figura en la BD de la que se obtuvo

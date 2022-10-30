@@ -1,31 +1,30 @@
 const mongoose = require ('mongoose');
 require('dotenv').config();
-// const { default: axios } = require("axios")
 
 const DATABASE = process.env.DATABASE_URL || "";
 
-const mongoDbConnect = async () => {
-    try {
-        await mongoose.connect(DATABASE);
-        console.log('Base de datos conectada ahora :)');
-    } catch (error) {
-        console.log(error);
-    } 
-};
-mongoDbConnect();
-module.exports = mongoDbConnect
-
-// IIFE
-// (async () => {
+// const mongoDbConnect = async () => {
 //     try {
 //         await mongoose.connect(DATABASE);
-//         console.log("Base de datos conectada!");
-//     }   catch (error) {
-//         console.error(error);
-//     }
-// })();
+//         console.log('Base de datos conectada ahora :)');
+//     } catch (error) {
+//         console.log(error);
+//     } 
+// };
+// mongoDbConnect();
+// module.exports = mongoDbConnect
 
-// module.exports = mongoose;
+// IIFE
+(async () => {
+    try {
+        await mongoose.connect(DATABASE);
+        console.log("Base de datos conectada!");
+    }   catch (error) {
+        console.error(error);
+    }
+})();
+
+module.exports = mongoose;
 /*es un funcion IIFE que se ejecuta automaticamente por los () del final*/
 
 
