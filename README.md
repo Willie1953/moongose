@@ -1,3 +1,3 @@
 # moongose
-Contiene anteproyecto trabajo final de mongoose
-Estoy desarrollando el trabajo final de backend y hago este priemr paso de un CRUD con mongoose para probar los enlaces y los codigos
+Contiene trabajo final de Backend en NUMEN
+Es un CRUD sobre MongoDB y un API que pega sobre un end point de datos geograficos
