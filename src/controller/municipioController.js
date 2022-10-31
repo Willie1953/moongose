@@ -1,12 +1,13 @@
-const agregarMunicipioService = require("../services/municipios/agregarMunicipio");
-const modificarMunicipioService = require("../services/municipios/modificarMunicipio");
-const obtenerMunicipioService = require("../services/municipios/obtenerMunicipio");
-const eliminarMunicipioService = require("../services/municipios/eliminarMunicipio");
+const agregarMunicipiosService = require("../services/municipios/agregarMunicipio");
+const modificarMunicipiosService = require("../services/municipios/modificarMunicipio");
+const obtenerMunicipiosService = require("../services/municipios/obtenerMunicipio");
+const eliminarMunicipiosService = require("../services/municipios/eliminarMunicipio");
 
-const agregarMunicipio = async (req, res, next) => {
+const agregarMunicipio = async (req, res) => {
+    console.log("agregar Municipio en el controlador");
     try {
-        const ciudad = await agregarMunicipioService(res);
-        res.json({message: "Municipios agregados : "});
+        await agregarMunicipiosService(res);
+        res.json({message: "Municipios agregados "});
     } catch (error) {
         const mng = error.message;
         res.json({menssage: "Ocurrio un error : " + mng })
@@ -15,17 +16,16 @@ const agregarMunicipio = async (req, res, next) => {
 
 const obtenerMunicipio = async (req, res, next) => {
     try {
-        const municipio = await obtenerMunicipioService();
+        const municipio = await obtenerMunicipiosService();
         res.json({municipio})
     } catch (error) {
         next(error)
-    }
-    
+    } 
 };
 
 const modificarMunicipio = async (req, res, next) => {
     try {
-        await modificarMunicipioService(req);
+        await modificarMunicipiosService(req);
         res.json({message: "Datos modificados."})
     } catch (error) {
         next(error)
@@ -34,7 +34,7 @@ const modificarMunicipio = async (req, res, next) => {
 
 const eliminarMunicipio = async (req, res, next) => {
     try {
-        await eliminarMunicipioService.deleteOne("nombremuni");
+        await eliminarMunicipiosService.deleteOne("nombremuni");
         res.json({menssage: "Municipio eliminado de la base de datos"});
     } catch (error) {
         const mng = error.message;

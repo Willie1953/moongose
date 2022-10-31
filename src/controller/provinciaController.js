@@ -3,16 +3,6 @@ const modificarProvinciasService = require("../services/provincias/modificarProv
 const   obtenerProvinciasService = require("../services/provincias/obtenerProvincia");
 const  eliminarProvinciasService = require("../services/provincias/eliminarProvincia")
 
-// const agregarProvincia = (next) => {
-//     console.log("en el controlador");
-//     try {
-//         agregarProvinciasService();
-//     } catch (error) {
-//         next(error)   
-//     };
-//     return;
-// }
-
 const agregarProvincia = async (req, res) => {
     console.log("agregar Provincia en el controlador");
     try {

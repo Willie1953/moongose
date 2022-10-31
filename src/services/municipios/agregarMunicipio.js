@@ -1,22 +1,23 @@
 const MunicipiosModel = require("../../models/municipios.models");
+const axios = require("axios");
 
-const agregarMunicipioService = (req) => {    
-        console.log("en agregar Muicipio");
+const agregarMunicipiosService = () => { 
 
-        axios.get("https://apis.datos.gob.ar/georef/api/municipios?provincia=Buenos-Aires&orden=nombre&campos=basico&max=300")
-        .then(function(response) {
-                const municipios=(response.data.municipios);       
-                const cantidad=(response.data.cantidad);
-                const prov=(response.data.parametros.provincia);
-                console.log("Hay en total:", cantidad, "municipios en la Provincia " + prov);
-                        console.log("en agregarP");
-                        municipios.forEach(async (element) => {
-                                const  newMunicipio = new MunicipiosModel(idmuni=element.id, nombremuni=element.nombre, datecreacion=Date.now);
-                                await newMunicipio.save();
-                                res.json ({message:"Municipio guardado", newMunicipio});
-                                return;
-                        });
-                }
-        )};
+/** se ha moquedo el get para seleccionar la provincia de Buenos Aires. Supuestamente desde el front se seleccionaria la provincia. Asimismo se ha limitado a 5 la cantidad de municipios devolver */
 
-module.exports = agregarMunicipioService
+axios.get("https://apis.datos.gob.ar/georef/api/municipios?&provincia=Buenos-Aires&campos=basico&orden=nombre&max=5")
+.then(function(response) {
+        municipio=response.data.municipios;
+        const cantidad=(response.data.total);
+        console.log("Hay en total:", cantidad, "municipios");
+        municipio.forEach(async (municipio) => {
+        const newMunicipio = new MunicipiosModel(municipio);
+        console.log("new" + newMunicipio);
+        await newMunicipio.save();
+
+        return
+})
+}
+)
+};
+module.exports = agregarMunicipiosService;
