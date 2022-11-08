@@ -34,7 +34,7 @@ const modificarMunicipio = async (req, res, next) => {
 
 const eliminarMunicipio = async (req, res, next) => {
     try {
-        await eliminarMunicipiosService.deleteOne("nombremuni");
+        await eliminarMunicipiosService(req);
         res.json({menssage: "Municipio eliminado de la base de datos"});
     } catch (error) {
         const mng = error.message;

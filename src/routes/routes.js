@@ -13,7 +13,7 @@ const {agregarProvincia, obtenerProvincia, modificarProvincia, eliminarProvincia
 
 router.post("/provincias", auth, registroActividad, agregarProvincia);
 router.get ("/provincias", registroActividad, obtenerProvincia);
-router.put ("/provincias/:id", registroActividad, modificarProvincia);
+router.put ("/provincias/:id", auth, registroActividad, modificarProvincia);
 router.delete("/provincias/:nombre", auth, registroActividad, eliminarProvincia);
 
 const {agregarMunicipio, obtenerMunicipio, modificarMunicipio, eliminarMunicipio} = require('../controller/municipioController');
@@ -21,7 +21,7 @@ const {agregarMunicipio, obtenerMunicipio, modificarMunicipio, eliminarMunicipio
  
 router.post("/municipios", auth, registroActividad, agregarMunicipio);
 router.get("/municipios", registroActividad, obtenerMunicipio);
-router.put("/municipios/:id", registroActividad, modificarMunicipio);
+router.put("/municipios/:id", auth, registroActividad, modificarMunicipio);
 router.delete("/municipios/:id", auth, registroActividad, eliminarMunicipio);
     
 module.exports = router;
