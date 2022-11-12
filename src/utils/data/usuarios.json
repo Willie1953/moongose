@@ -1,0 +1,29 @@
+[
+    {
+    "username": "Juan",
+    "roles": {
+    "User": 2001,
+    "Editor": 1984
+    },
+    "password": "$ABCD",
+    "refreshToken": "$DCBA"
+    },
+    {
+    "username": "Mercedes",
+    "roles": {
+    "User": 2001,
+    "Editor": 1984,
+    "Admin": 5150
+    },
+    "password": "$1234",
+    "refreshToken": "$4321"
+    },
+    {
+    "username": "Castor",
+    "roles": {
+    "User": 2001
+    },
+    "password": "$glaciar"
+    }
+       
+]

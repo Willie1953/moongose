@@ -1,0 +1,12 @@
+const autorizoIngresoService = require("../services/login/deIngreso");
+
+const autorizoIngreso = async (req, res) => {
+    console.log("Controlando credenciales para el ingreso");
+    try {
+        await autorizoIngresoService (res);
+        res.json({message: "Autorizado "});
+    } catch (error) {
+        res.json({message: "Ud no esta autorizado para ingresar."})
+    }
+};
+module.exports =  autorizoIngreso;
